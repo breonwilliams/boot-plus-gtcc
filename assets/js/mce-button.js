@@ -74,6 +74,23 @@
                     ]
                 },
                 {
+                    text: 'Recent Courses',
+                    menu: [
+                        {
+                            text: 'Recent Courses List',
+                            onclick: function() {
+                                editor.insertContent('[list_recent_courses course_category="" posts="4" ptype="courses"]');
+                            }
+                        },
+                        {
+                            text: 'Data Tables Courses List',
+                            onclick: function() {
+                                editor.insertContent('[datatables_recent_courses course_category="" posts="4" ptype="courses"]');
+                            }
+                        },
+                    ]
+                },
+                {
                     text: 'Google Map',
                     onclick: function() {
                                 editor.insertContent('[googlemap id="myMap1" height="" zoom="15" lat="35.905160" long="-79.046908" title="The University of North Carolina at Chapel Hill"]');

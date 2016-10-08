@@ -141,3 +141,158 @@ function carousel_recent_posts( $atts ) {
 }
 
 /*recent posts carousel end*/
+
+/*recent course list start*/
+add_shortcode( 'list_recent_courses', 'list_recent_courses' );
+function list_recent_courses( $atts ) {
+    ob_start();
+    // define attributes and their defaults
+    extract( shortcode_atts( array (
+        'posts' => 4,
+        'category' => '',
+        'ptype' => '',
+        'class' => '',
+        'course_category' => '',
+    ), $atts ) );
+
+    $class = $atts['class'];
+
+    // define query parameters based on attributes
+    $options = array(
+        'posts_per_page' => $posts,
+        'post_type' => $ptype,
+        'category_name' => $category,
+        'course_category' => $course_category,
+        'orderby'=>'title',
+		'order'=>'ASC',
+    );
+    $query = new WP_Query( $options );
+    // run the loop based on the query
+    if ( $query->have_posts() ) { ?>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Course Name</th>
+        <th>Course Category</th>
+        <th>Course Instructor</th>
+        <th>Course Number</th>
+      </tr>
+    </thead>
+    <tbody>
+
+<?php while ( $query->have_posts() ) : $query->the_post(); ?>
+
+      <tr>
+        <th scope="row">
+          <a href="<?php the_permalink(); ?>">
+            <?php the_title(); ?>
+          </a>
+        </th>
+        <td>
+          <?php list_hierarchical_terms(); ?>
+        </td>
+        <td>
+          <?php the_field( 'course_instructor' ); ?>
+        </td>
+        <td>
+          <?php the_field( 'course_number' ); ?>
+        </td>
+      </tr>
+
+
+<?php endwhile;
+            wp_reset_postdata(); ?>
+
+    </tbody>
+  </table>
+</div>
+
+<?php $myvariable = ob_get_clean();
+    return $myvariable;
+    }
+}
+
+/*recent course list end*/
+
+
+
+/* Recent course list Data Tables */
+
+add_shortcode( 'datatables_recent_courses', 'datatables_recent_courses' );
+function datatables_recent_courses( $atts ) {
+
+    wp_enqueue_script( 'dataTables-js' );
+    wp_enqueue_script( 'dataTables-init' );
+
+    ob_start();
+    // define attributes and their defaults
+    extract( shortcode_atts( array (
+        'posts' => 4,
+        'category' => '',
+        'ptype' => '',
+        'class' => '',
+        'course_category' => '',
+    ), $atts ) );
+
+    $class = $atts['class'];
+
+    // define query parameters based on attributes
+    $options = array(
+        'posts_per_page' => $posts,
+        'post_type' => $ptype,
+        'category_name' => $category,
+        'course_category' => $course_category,
+        'orderby'=>'title',
+		'order'=>'ASC',
+    );
+    $query = new WP_Query( $options );
+    // run the loop based on the query
+    if ( $query->have_posts() ) { ?>
+
+<div class="table-responsive">
+  <table id="coursesTable" class="table table-1 table-striped">
+    <thead>
+      <tr>
+        <th>Course Name</th>
+        <th>Course Category</th>
+        <th>Course Instructor</th>
+        <th>Course Number</th>
+      </tr>
+    </thead>
+    <tbody>
+
+<?php while ( $query->have_posts() ) : $query->the_post(); ?>
+
+      <tr>
+        <td scope="row">
+          <a href="<?php the_permalink(); ?>">
+            <?php the_title(); ?>
+          </a>
+        </td>
+        <td>
+          <?php list_hierarchical_terms(); ?>
+        </td>
+        <td>
+          <?php the_field( 'course_instructor' ); ?>
+        </td>
+        <td>
+          <?php the_field( 'course_number' ); ?>
+        </td>
+      </tr>
+
+
+<?php endwhile;
+            wp_reset_postdata(); ?>
+
+    </tbody>
+  </table>
+</div>
+
+<?php $myvariable = ob_get_clean();
+    return $myvariable;
+    }
+}
+
+/* Recent course list Data Tables end */
