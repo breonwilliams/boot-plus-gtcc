@@ -171,7 +171,7 @@ function list_recent_courses( $atts ) {
     if ( $query->have_posts() ) { ?>
 
 <div class="table-responsive">
-  <table class="table">
+  <table class="table table-1 table-striped">
     <thead>
       <tr>
         <th>Course Name</th>
@@ -185,11 +185,11 @@ function list_recent_courses( $atts ) {
 <?php while ( $query->have_posts() ) : $query->the_post(); ?>
 
       <tr>
-        <th scope="row">
+        <td scope="row">
           <a href="<?php the_permalink(); ?>">
             <?php the_title(); ?>
           </a>
-        </th>
+        </td>
         <td>
           <?php list_hierarchical_terms(); ?>
         </td>
