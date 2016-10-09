@@ -176,7 +176,7 @@ function list_recent_courses( $atts ) {
       <tr>
         <th>Course Name</th>
         <th>Course Category</th>
-        <th>Course Instructor</th>
+        <th>Instructor</th>
         <th>Course Number</th>
       </tr>
     </thead>
@@ -257,7 +257,7 @@ function datatables_recent_courses( $atts ) {
       <tr>
         <th>Course Name</th>
         <th>Course Category</th>
-        <th>Course Instructor</th>
+        <th>Instructor</th>
         <th>Course Number</th>
       </tr>
     </thead>
