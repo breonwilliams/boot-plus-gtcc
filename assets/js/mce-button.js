@@ -85,7 +85,7 @@
                         {
                             text: 'Data Tables Courses List',
                             onclick: function() {
-                                editor.insertContent('[datatables_recent_courses course_category="" posts="4" ptype="courses"]');
+                                editor.insertContent('[datatables_recent_courses course_category="" posts="-1" ptype="courses"]');
                             }
                         },
                     ]
