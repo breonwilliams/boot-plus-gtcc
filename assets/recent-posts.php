@@ -223,7 +223,7 @@ function list_recent_courses( $atts ) {
 add_shortcode( 'datatables_recent_courses', 'datatables_recent_courses' );
 function datatables_recent_courses( $atts ) {
 
-    wp_enqueue_script( 'dataTables-js' );
+    wp_enqueue_script( 'dataTables-min' );
     wp_enqueue_script( 'dataTables-init' );
 
     ob_start();
