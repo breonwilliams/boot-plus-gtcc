@@ -5,9 +5,6 @@
         "paging": true,
         "autoWidth": true,
         "buttons": [
-          'copyHtml5',
-          'csvHtml5',
-          'excelHtml5',
           'pdfHtml5',
           'print'
         ]
