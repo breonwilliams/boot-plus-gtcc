@@ -174,10 +174,10 @@ function list_recent_courses( $atts ) {
   <table class="table table-1 table-striped">
     <thead>
       <tr>
-        <th>Course Name</th>
-        <th>Course Category</th>
-        <th>Instructor</th>
-        <th>Course Number</th>
+        <th class="col-md-3">Course Name</th>
+        <th class="col-md-3">Course Category</th>
+        <th class="col-md-3">Instructor</th>
+        <th class="col-md-3">Course Number</th>
       </tr>
     </thead>
     <tbody>
@@ -255,10 +255,10 @@ function datatables_recent_courses( $atts ) {
   <table id="coursesTable" class="table table-1 table-striped">
     <thead>
       <tr>
-        <th>Course Name</th>
-        <th>Course Category</th>
-        <th>Instructor</th>
-        <th>Course Number</th>
+        <th class="col-md-3">Course Name</th>
+        <th class="col-md-3">Course Category</th>
+        <th class="col-md-3">Instructor</th>
+        <th class="col-md-3">Course Number</th>
       </tr>
     </thead>
     <tbody>
