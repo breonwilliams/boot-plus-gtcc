@@ -223,8 +223,19 @@ function list_recent_courses( $atts ) {
 add_shortcode( 'datatables_recent_courses', 'datatables_recent_courses' );
 function datatables_recent_courses( $atts ) {
 
-    wp_enqueue_script( 'dataTables-min' );
     wp_enqueue_script( 'dataTables-init' );
+    wp_enqueue_script( 'dataTables-min' );
+    wp_enqueue_script( 'buttons-min' );
+    wp_enqueue_script( 'colVis-js' );
+    wp_enqueue_script( 'html5-js' );
+    wp_enqueue_script( 'print-js' );
+    wp_enqueue_script( 'databootstrap-js' );
+    wp_enqueue_script( 'buttonsboot-js' );
+    wp_enqueue_script( 'jszip-js' );
+    wp_enqueue_script( 'vfs_fonts-js' );
+    wp_enqueue_script( 'pdfmake-js' );
+    wp_enqueue_script( 'responsive-js' );
+    wp_enqueue_script( 'responsive-bootstrap' );
 
     ob_start();
     // define attributes and their defaults
@@ -251,14 +262,13 @@ function datatables_recent_courses( $atts ) {
     // run the loop based on the query
     if ( $query->have_posts() ) { ?>
 
-<div class="table-responsive">
-  <table id="coursesTable" class="table table-1 table-striped">
+  <table id="coursesTable" class="table table-1 table-striped dt-responsive nowrap">
     <thead>
       <tr>
-        <th class="col-md-3">Course Name</th>
-        <th class="col-md-3">Course Category</th>
-        <th class="col-md-3">Instructor</th>
-        <th class="col-md-3">Course Number</th>
+        <th>Course Name</th>
+        <th>Course Category</th>
+        <th>Instructor</th>
+        <th>Course Number</th>
       </tr>
     </thead>
     <tbody>
@@ -288,7 +298,6 @@ function datatables_recent_courses( $atts ) {
 
     </tbody>
   </table>
-</div>
 
 <?php $myvariable = ob_get_clean();
     return $myvariable;
