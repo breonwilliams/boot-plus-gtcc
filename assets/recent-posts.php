@@ -262,7 +262,7 @@ function datatables_recent_courses( $atts ) {
     // run the loop based on the query
     if ( $query->have_posts() ) { ?>
 
-  <table id="coursesTable" class="table table-1 table-striped dt-responsive nowrap">
+  <table id="coursesTable" class="table table-1 table-striped dt-responsive" cellspacing="0" width="100%">
     <thead>
       <tr>
         <th>Course Name</th>
