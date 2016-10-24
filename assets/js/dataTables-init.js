@@ -11,9 +11,6 @@ jQuery(function ($) {
         "responsive": true,
         "buttons": [
           'colvis',
-          'copyHtml5',
-          'csvHtml5',
-          'excelHtml5',
           'pdfHtml5',
           'print',
         ]
