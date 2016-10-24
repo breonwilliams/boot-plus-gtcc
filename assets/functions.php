@@ -384,3 +384,43 @@ function logout_func ($atts, $content = null) {
     return '<a class="'.$class.'" href="' . $logoutlink . '" title="Logout">'. $linktext .'</a>';
 }
 add_shortcode( 'boot_logoutbtn', 'logout_func' );
+
+
+/* Show/Hide Toggle */
+
+function show_hide( $atts, $content = null ) {
+    wp_enqueue_script( 'showhide-js' );
+    $atts = shortcode_atts(
+        array(
+            'class' => '',
+            'id' => '',
+        ), $atts, 'show_hide' );
+
+    $class = $atts['class'];
+    $id = $atts['id'];
+
+    return '<button onclick="togglediv('.$id.')" class="'.$class.'">' . do_shortcode($content) . '</button>';
+
+}
+
+add_shortcode('show_hide', 'show_hide');
+
+
+/* Show/Hide item */
+
+function show_item( $atts, $content = null ) {
+
+    $atts = shortcode_atts(
+        array(
+            'class' => '',
+            'id' => '',
+        ), $atts, 'show_item' );
+
+    $class = $atts['class'];
+    $id = $atts['id'];
+
+    return '<div id="'.$id.'" class="'.$class.'" style="display: none;">' . do_shortcode($content) . '</div>';
+
+}
+
+add_shortcode('show_item', 'show_item');

@@ -44,6 +44,7 @@ function wpb_adding_scripts() {
     wp_register_script( 'modal', $bootplus_shortcodes_directory.'assets/js/modal.js', 'jquery','1.0',true);
     wp_register_script( 'dataTables-min', $bootplus_shortcodes_directory.'assets/js/datatables.min.js', 'jquery','1.0',true);
     wp_register_script( 'dataTables-init', $bootplus_shortcodes_directory.'assets/js/dataTables-init.js', 'jquery','1.0',true);
+  wp_register_script( 'showhide-js', $bootplus_shortcodes_directory.'assets/js/showhide-toggle.js', 'jquery','1.0',true);
 }
 
 add_action( 'wp_enqueue_scripts', 'wpb_adding_scripts' ); 

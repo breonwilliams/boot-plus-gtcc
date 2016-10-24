@@ -120,6 +120,23 @@
                     ]
                 },
                 {
+                    text: 'Show/Hide Button',
+                    menu: [
+                        {
+                            text: 'Button',
+                            onclick: function() {
+                                editor.insertContent('[show_hide id="toggle1" class="btn btn-primary"]test[/show_hide]');
+                            }
+                        },
+                        {
+                            text: 'Item',
+                            onclick: function() {
+                                editor.insertContent('[show_item id="toggle1" class=""][/show_item]');
+                            }
+                        },
+                    ]
+                },
+                {
                     text: 'Login/Logout',
                     menu: [
                         {
