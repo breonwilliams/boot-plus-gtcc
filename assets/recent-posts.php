@@ -186,9 +186,9 @@ function list_recent_courses( $atts ) {
 
       <tr>
         <td scope="row">
-          <a href="<?php the_permalink(); ?>">
+          <strong><a href="<?php the_permalink(); ?>">
             <?php the_title(); ?>
-          </a>
+          </a></strong>
         </td>
         <td>
           <?php list_hierarchical_terms(); ?>
