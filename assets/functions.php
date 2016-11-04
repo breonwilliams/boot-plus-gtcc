@@ -384,3 +384,13 @@ function logout_func ($atts, $content = null) {
     return '<a class="'.$class.'" href="' . $logoutlink . '" title="Logout">'. $linktext .'</a>';
 }
 add_shortcode( 'boot_logoutbtn', 'logout_func' );
+
+function alphaindex_queries( $query ) {
+    /* Sort songs alpha  */
+    if ( ! is_admin() && ( is_post_type_archive( 'courses' ) || is_tax( 'course_category' ) ) && $query->is_main_query() ) {
+        $query->set('orderby', 'name');
+        $query->set('order', 'ASC');
+        $query->set('posts_per_page', '-1');
+    }
+}
+add_action( 'pre_get_posts', 'alphaindex_queries' );

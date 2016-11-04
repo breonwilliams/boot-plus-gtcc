@@ -57,6 +57,12 @@
                             }
                 },
                 {
+                    text: 'Taxonomy List',
+                    onclick: function() {
+                        editor.insertContent('[gtcc_taxonomy_list taxonomy="course_category" post-type="courses" title=""]');
+                    }
+                },
+                {
                     text: 'Recent Posts',
                     menu: [
                         {

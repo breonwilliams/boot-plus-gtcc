@@ -58,9 +58,29 @@ function wpb_adding_scripts() {
   wp_register_script( 'pdfmake-js', $bootplus_shortcodes_directory.'assets/js/pdfmake.min.js', 'jquery','1.0',true);
   wp_register_script( 'responsive-js', $bootplus_shortcodes_directory.'assets/js/dataTables.responsive.min.js', 'jquery','1.0',true);
   wp_register_script( 'responsive-bootstrap', $bootplus_shortcodes_directory.'assets/js/responsive.bootstrap.min.js', 'jquery','1.0',true);
+
+  function init_customizations() {
+    if (is_tax('course_category')) {
+      wp_enqueue_script( 'dataTables-init' );
+      wp_enqueue_script( 'dataTables-min' );
+      wp_enqueue_script( 'buttons-min' );
+      wp_enqueue_script( 'colVis-js' );
+      wp_enqueue_script( 'html5-js' );
+      wp_enqueue_script( 'print-js' );
+      wp_enqueue_script( 'databootstrap-js' );
+      wp_enqueue_script( 'buttonsboot-js' );
+      wp_enqueue_script( 'jszip-js' );
+      wp_enqueue_script( 'vfs_fonts-js' );
+      wp_enqueue_script( 'pdfmake-js' );
+      wp_enqueue_script( 'responsive-js' );
+      wp_enqueue_script( 'responsive-bootstrap' );
+    }
+  }
+  add_action( 'wp_enqueue_scripts', 'init_customizations', 0 );
+
 }
 
-add_action( 'wp_enqueue_scripts', 'wpb_adding_scripts' ); 
+add_action( 'wp_enqueue_scripts', 'wpb_adding_scripts' );
 
 
 
@@ -115,5 +135,6 @@ include($bootplus_shortcodes_path.'/assets/recent-posts.php');
 include($bootplus_shortcodes_path.'/assets/thumbnails.php');
 include($bootplus_shortcodes_path.'/assets/google-map.php');
 include($bootplus_shortcodes_path.'/assets/page-categories.php');
+include($bootplus_shortcodes_path.'/assets/taxonomy-posts-list.php');
 
 
