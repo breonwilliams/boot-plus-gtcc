@@ -30,6 +30,7 @@ function bootplus_shortcodes_add_scripts() {
     wp_enqueue_style('dataTables-bootstrap', $bootplus_shortcodes_directory.'assets/css/dataTables.bootstrap.min.css');
     wp_enqueue_style('dataTables-buttons', $bootplus_shortcodes_directory.'assets/css/buttons.bootstrap.min.css');
     wp_enqueue_style('dataTables-responsive', $bootplus_shortcodes_directory.'assets/css/responsive.bootstrap.min.css');
+    wp_enqueue_style('slick-nav', $bootplus_shortcodes_directory.'assets/css/slicknav.css');
         }}
 add_filter('init', 'bootplus_shortcodes_add_scripts');
 
@@ -58,6 +59,11 @@ function wpb_adding_scripts() {
   wp_register_script( 'pdfmake-js', $bootplus_shortcodes_directory.'assets/js/pdfmake.min.js', 'jquery','1.0',true);
   wp_register_script( 'responsive-js', $bootplus_shortcodes_directory.'assets/js/dataTables.responsive.min.js', 'jquery','1.0',true);
   wp_register_script( 'responsive-bootstrap', $bootplus_shortcodes_directory.'assets/js/responsive.bootstrap.min.js', 'jquery','1.0',true);
+  wp_register_script( 'slicknav-js', $bootplus_shortcodes_directory.'assets/js/jquery.slicknav.js', 'jquery','1.0',true);
+  wp_register_script( 'slicknav-init', $bootplus_shortcodes_directory.'assets/js/slicknav-init.js', 'jquery','1.0',true);
+
+  wp_enqueue_script( 'slicknav-js' );
+  wp_enqueue_script( 'slicknav-init' );
 
   function init_customizations() {
     if (is_tax('course_category')) {
