@@ -58,9 +58,20 @@
                 },
                 {
                     text: 'Taxonomy List',
-                    onclick: function() {
-                        editor.insertContent('[gtcc_taxonomy_list taxonomy="course_category" post-type="courses" title=""]');
-                    }
+                    menu: [
+                        {
+                            text: 'Alphabetical List',
+                            onclick: function() {
+                                editor.insertContent('[gtcc_taxonomy_list taxonomy="course_category" post-type="courses" title=""]');
+                            }
+                        },
+                        {
+                            text: 'Hierarchical List',
+                            onclick: function() {
+                                editor.insertContent('[ct_terms custom_taxonomy="course_category"]');
+                            }
+                        },
+                    ]
                 },
                 {
                     text: 'Recent Posts',
