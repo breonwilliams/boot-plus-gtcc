@@ -198,6 +198,13 @@ function list_recent_courses( $atts ) {
         </td>
         <td>
           <?php the_field( 'course_number' ); ?>
+          <?php
+		$gtcc_register = get_theme_mod( 'registration_textbox', '' );
+		if($gtcc_register) { ?>
+			<p><a href="<?php echo $gtcc_register; ?>" class="btn btn-primary btn-sm btn-bordered margintop-15" target="_blank">Register <i class="fa fa-chevron-right"></i></a></p>
+		<?php } else { ?>
+
+		<?php } ?>
         </td>
       </tr>
 
@@ -279,13 +286,6 @@ function datatables_recent_courses( $atts ) {
         <td scope="row">
           <strong><a href="<?php the_permalink(); ?>">
             <?php the_title(); ?>
-            <?php
-	$gtcc_register = get_theme_mod( 'registration_textbox', '' );
-	if($gtcc_register) { ?>
-		<p><a href="<?php echo $gtcc_register; ?>" class="btn btn-primary btn-sm btn-bordered margintop-15" target="_blank">Register <i class="fa fa-chevron-right"></i></a></p>
-	<?php } else { ?>
-
-	<?php } ?>
           </a></strong>
         </td>
         <td>
@@ -296,6 +296,13 @@ function datatables_recent_courses( $atts ) {
         </td>
         <td>
           <?php the_field( 'course_number' ); ?>
+          <?php
+	$gtcc_register = get_theme_mod( 'registration_textbox', '' );
+	if($gtcc_register) { ?>
+		<p><a href="<?php echo $gtcc_register; ?>" class="btn btn-primary btn-sm btn-bordered margintop-15" target="_blank">Register <i class="fa fa-chevron-right"></i></a></p>
+	<?php } else { ?>
+
+	<?php } ?>
         </td>
       </tr>
 
