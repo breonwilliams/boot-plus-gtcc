@@ -239,8 +239,8 @@ function datatables_recent_courses( $atts ) {
     wp_enqueue_script( 'databootstrap-js' );
     wp_enqueue_script( 'buttonsboot-js' );
     wp_enqueue_script( 'jszip-js' );
-    wp_enqueue_script( 'vfs_fonts-js' );
     wp_enqueue_script( 'pdfmake-js' );
+    wp_enqueue_script( 'vfs_fonts-js' );
     wp_enqueue_script( 'responsive-js' );
     wp_enqueue_script( 'responsive-bootstrap' );
 

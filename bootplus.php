@@ -55,8 +55,8 @@ function wpb_adding_scripts() {
   wp_register_script( 'databootstrap-js', $bootplus_shortcodes_directory.'assets/js/dataTables.bootstrap.min.js', 'jquery','1.0',true);
   wp_register_script( 'buttonsboot-js', $bootplus_shortcodes_directory.'assets/js/buttons.bootstrap.min.js', 'jquery','1.0',true);
   wp_register_script( 'jszip-js', $bootplus_shortcodes_directory.'assets/js/jszip.min.js', 'jquery','1.0',true);
-  wp_register_script( 'vfs_fonts-js', $bootplus_shortcodes_directory.'assets/js/vfs_fonts.js', 'jquery','1.0',true);
   wp_register_script( 'pdfmake-js', $bootplus_shortcodes_directory.'assets/js/pdfmake.min.js', 'jquery','1.0',true);
+  wp_register_script( 'vfs_fonts-js', $bootplus_shortcodes_directory.'assets/js/vfs_fonts.js', 'jquery','1.0',true);
   wp_register_script( 'responsive-js', $bootplus_shortcodes_directory.'assets/js/dataTables.responsive.min.js', 'jquery','1.0',true);
   wp_register_script( 'responsive-bootstrap', $bootplus_shortcodes_directory.'assets/js/responsive.bootstrap.min.js', 'jquery','1.0',true);
   wp_register_script( 'slicknav-js', $bootplus_shortcodes_directory.'assets/js/jquery.slicknav.js', 'jquery','1.0',true);
