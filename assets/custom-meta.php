@@ -10,26 +10,33 @@ add_action( 'add_meta_boxes', 'meta_box_slider' );
 function meta_box_slider()
 {                                      // --- Parameters: ---
     add_meta_box( 'slider-meta-box-id', // ID attribute of metabox
-                  'Full Width Slider Shortcode',       // Title of metabox visible to user
-                  'meta_box_callback', // Function that prints box in wp-admin
-                  'page',              // Show box for posts, pages, custom, etc.
-                  'normal',            // Where on the page to show the box
-                  'high' );            // Priority of box in display order
+        'Full Width Slider Shortcode',       // Title of metabox visible to user
+        'meta_box_callback', // Function that prints box in wp-admin
+        'page',              // Show box for posts, pages, custom, etc.
+        'normal',            // Where on the page to show the box
+        'high' );            // Priority of box in display order
 }
 
 function meta_box_callback( $post )
 {
     $values = get_post_custom( $post->ID );
     $selected = isset( $values['meta_box_slider_embed'] ) ? $values['meta_box_slider_embed'][0] : '';
+    $meta_box_slider_embed = get_post_meta( $post->ID, 'meta_box_slider_embed', true );
 
     wp_nonce_field( 'my_meta_box_nonce', 'meta_box_nonce' );
     ?>
     <p>
         <label for="meta_box_slider_embed"><p>Insert your slider shortcode here.</p></label>
-        <textarea name="meta_box_slider_embed" id="meta_box_slider_embed" cols="40" rows="1" style="width: 100%; height: 4em;" ><?php echo $selected; ?></textarea>
+
+        <?php wp_editor($meta_box_slider_embed, 'biography', array(
+            'wpautop'               =>      true,
+            'media_buttons' =>      false,
+            'textarea_name' =>      'meta_box_slider_embed',
+            'textarea_rows' =>      10
+        )); ?>
     </p>
     <p>Leave this field Empty if you do not want to use a slider. Insert <strong>full_above_content_area();</strong> outside of fixed width container.</p>
-    <?php   
+    <?php
 }
 
 add_action( 'save_post', 'meta_box_slider_save' );
@@ -45,7 +52,7 @@ function meta_box_slider_save( $post_id )
     if( !current_user_can( 'edit_post' ) ) return;
 
     // now we can actually save the data
-    $allowed = array( 
+    $allowed = array(
         'a' => array( // on allow a tags
             'href' => array() // and those anchords can only have href attribute
         )
@@ -53,8 +60,11 @@ function meta_box_slider_save( $post_id )
 
     // Probably a good idea to make sure your data is set
 
-    if( isset( $_POST['meta_box_slider_embed'] ) )
+    if( isset( $_POST['meta_box_slider_embed'] ) && $_POST['meta_box_slider_embed'] != '' ) {
         update_post_meta( $post_id, 'meta_box_slider_embed', $_POST['meta_box_slider_embed'] );
+    } else {
+        delete_post_meta( $post_id, 'meta_box_slider_embed' );
+    }
 
 }
 
@@ -90,26 +100,32 @@ add_action( 'add_meta_boxes', 'meta_box_map' );
 function meta_box_map()
 {                                      // --- Parameters: ---
     add_meta_box( 'map-meta-box-id', // ID attribute of metabox
-                  'Full Width Map Shortcode',       // Title of metabox visible to user
-                  'meta_box_callback_map', // Function that prints box in wp-admin
-                  'page',              // Show box for posts, pages, custom, etc.
-                  'normal',            // Where on the page to show the box
-                  'high' );            // Priority of box in display order
+        'Full Width Map Shortcode',       // Title of metabox visible to user
+        'meta_box_callback_map', // Function that prints box in wp-admin
+        'page',              // Show box for posts, pages, custom, etc.
+        'normal',            // Where on the page to show the box
+        'high' );            // Priority of box in display order
 }
 
 function meta_box_callback_map( $post )
 {
     $values = get_post_custom( $post->ID );
     $selected = isset( $values['meta_box_map_embed'] ) ? $values['meta_box_map_embed'][0] : '';
+    $meta_box_map_embed = get_post_meta( $post->ID, 'meta_box_map_embed', true );
 
     wp_nonce_field( 'my_meta_box_nonce', 'meta_box_nonce' );
     ?>
     <p>
         <label for="meta_box_map_embed"><p>Insert your map shortcode here.</p></label>
-        <textarea name="meta_box_map_embed" id="meta_box_map_embed" cols="40" rows="1" style="width: 100%; height: 4em;"><?php echo $selected; ?></textarea>
+        <?php wp_editor($meta_box_map_embed, 'mapp', array(
+            'wpautop'               =>      true,
+            'media_buttons' =>      false,
+            'textarea_name' =>      'meta_box_map_embed',
+            'textarea_rows' =>      10
+        )); ?>
     </p>
     <p>Leave this field Empty if you do not want to use a map. Insert <strong>full_below_content_area();</strong> outside of fixed width container.</p>
-    <?php   
+    <?php
 }
 
 add_action( 'save_post', 'meta_box_map_save' );
@@ -125,7 +141,7 @@ function meta_box_map_save( $post_id )
     if( !current_user_can( 'edit_post' ) ) return;
 
     // now we can actually save the data
-    $allowed = array( 
+    $allowed = array(
         'a' => array( // on allow a tags
             'href' => array() // and those anchords can only have href attribute
         )
@@ -133,8 +149,11 @@ function meta_box_map_save( $post_id )
 
     // Probably a good idea to make sure your data is set
 
-    if( isset( $_POST['meta_box_map_embed'] ) )
+    if( isset( $_POST['meta_box_map_embed'] ) && $_POST['meta_box_map_embed'] != '' ) {
         update_post_meta( $post_id, 'meta_box_map_embed', $_POST['meta_box_map_embed'] );
+    } else {
+        delete_post_meta( $post_id, 'meta_box_map_embed' );
+    }
 
 }
 
