@@ -35,7 +35,6 @@ function bootplus_shortcodes_add_scripts() {
 add_filter('init', 'bootplus_shortcodes_add_scripts');
 
 
-
 function wpb_adding_scripts() {
   global $bootplus_shortcodes_directory, $bootplus_shortcodes_path;
     wp_register_script( 'lity-js', $bootplus_shortcodes_directory.'assets/js/lity.js', 'jquery','1.0',true);
@@ -46,7 +45,6 @@ function wpb_adding_scripts() {
     wp_register_script( 'parallax', $bootplus_shortcodes_directory.'assets/js/parallax.js', 'jquery','1.0',true);
     wp_register_script( 'modal', $bootplus_shortcodes_directory.'assets/js/modal.js', 'jquery','1.0',true);
     wp_register_script( 'dataTables-init', $bootplus_shortcodes_directory.'assets/js/dataTables-init.js', 'jquery','1.0',true);
-  wp_register_script( 'showhide-js', $bootplus_shortcodes_directory.'assets/js/showhide-toggle.js', 'jquery','1.0',true);
   wp_register_script( 'dataTables-min', $bootplus_shortcodes_directory.'assets/js/jquery.dataTables.min.js', 'jquery','1.0',true);
   wp_register_script( 'buttons-min', $bootplus_shortcodes_directory.'assets/js/dataTables.buttons.min.js', 'jquery','1.0',true);
   wp_register_script( 'colVis-js', $bootplus_shortcodes_directory.'assets/js/buttons.colVis.min.js', 'jquery','1.0',true);
