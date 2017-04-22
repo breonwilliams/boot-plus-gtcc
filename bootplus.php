@@ -21,15 +21,16 @@ function bootplus_shortcodes_add_scripts() {
     /* Includes */
     include($bootplus_shortcodes_path.'/assets/functions.php');
       wp_enqueue_style('style-css', $bootplus_shortcodes_directory.'assets/css/style.css');
-      wp_enqueue_style('lity-css', $bootplus_shortcodes_directory.'assets/css/lity.css');
-      wp_enqueue_style('bgvid-css', $bootplus_shortcodes_directory.'assets/css/background-vid.css');
-      wp_enqueue_style('events-css', $bootplus_shortcodes_directory.'assets/css/recent-events.css');
-      wp_enqueue_style('slick-css', $bootplus_shortcodes_directory.'assets/css/slick.css');
-      wp_enqueue_style('slick-theme', $bootplus_shortcodes_directory.'assets/css/slick-theme.css');
-      wp_enqueue_style('dataTables-css', $bootplus_shortcodes_directory.'assets/css/datatables.min.css');
-    wp_enqueue_style('dataTables-bootstrap', $bootplus_shortcodes_directory.'assets/css/dataTables.bootstrap.min.css');
-    wp_enqueue_style('dataTables-buttons', $bootplus_shortcodes_directory.'assets/css/buttons.bootstrap.min.css');
-    wp_enqueue_style('dataTables-responsive', $bootplus_shortcodes_directory.'assets/css/responsive.bootstrap.min.css');
+    wp_register_style( 'lity-css', plugins_url( '/assets/css/lity.css', __FILE__ ), array(), '1.0.0', all );
+    wp_register_style( 'bgvid-css', plugins_url( '/assets/css/background-vid.css', __FILE__ ), array(), '1.0.0', all );
+    wp_register_style( 'events-css', plugins_url( '/assets/css/recent-events.css', __FILE__ ), array(), '1.0.0', all );
+    wp_register_style( 'slick-css', plugins_url( '/assets/css/slick.css', __FILE__ ), array(), '1.0.0', all );
+    wp_register_style( 'slick-theme', plugins_url( '/assets/css/slick-theme.css', __FILE__ ), array(), '1.0.0', all );
+    wp_register_style( 'masonry-css', plugins_url( '/assets/css/masonry/styles.css', __FILE__ ), array(), '1.0.0', all );
+    wp_register_style( 'dataTables-css', plugins_url( '/assets/css/datatables.min.css', __FILE__ ), array(), '1.0.0', all );
+    wp_register_style( 'dataTables-bootstrap', plugins_url( '/assets/css/dataTables.bootstrap.min.css', __FILE__ ), array(), '1.0.0', all );
+    wp_register_style( 'dataTables-buttons', plugins_url( '/assets/css/buttons.bootstrap.min.css', __FILE__ ), array(), '1.0.0', all );
+    wp_register_style( 'dataTables-responsive', plugins_url( '/assets/css/responsive.bootstrap.min.css', __FILE__ ), array(), '1.0.0', all );
     wp_enqueue_style('slick-nav', $bootplus_shortcodes_directory.'assets/css/slicknav.css');
         }}
 add_filter('init', 'bootplus_shortcodes_add_scripts');
@@ -62,6 +63,11 @@ function wpb_adding_scripts() {
 
   wp_enqueue_script( 'slicknav-js' );
   wp_enqueue_script( 'slicknav-init' );
+
+  wp_register_script( 'masonry-min', $bootplus_shortcodes_directory.'assets/js/masonry/masonry.pkgd.min.js', 'jquery','1.0',true);
+  wp_register_script( 'masonry-init', $bootplus_shortcodes_directory.'assets/js/masonry/masonry-init.js', 'jquery','1.0',true);
+  wp_register_script( 'imagesLoaded-js', $bootplus_shortcodes_directory.'assets/js/masonry/imagesloaded.pkgd.min.js', 'jquery','1.0',true);
+
 
   function init_customizations() {
     if (is_tax('course_category')) {
@@ -142,3 +148,6 @@ include($bootplus_shortcodes_path.'/assets/page-categories.php');
 include($bootplus_shortcodes_path.'/assets/taxonomy-posts-list.php');
 
 
+//include($bootplus_shortcodes_path.'/assets/cpt-ui/post-types.php');
+//include($bootplus_shortcodes_path.'/assets/cpt-ui/taxonomies.php');
+//include($bootplus_shortcodes_path.'/assets/custom-fields/field-groups.php');

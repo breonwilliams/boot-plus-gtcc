@@ -79,13 +79,25 @@
                         {
                             text: 'Recent Posts List',
                             onclick: function() {
-                                editor.insertContent('[list_recent_posts category="" posts="2" ptype=""]');
+                                editor.insertContent('[list_recent_posts category="" class="" ptype="" per_page="4"]');
+                            }
+                        },
+                        {
+                            text: 'Recent Posts Thumbnails',
+                            onclick: function() {
+                                editor.insertContent('[thumb_recent_posts column="col-md-4" class="" ptype="" per_page="4"]');
                             }
                         },
                         {
                             text: 'Recent Posts Carousel',
                             onclick: function() {
-                                editor.insertContent('[carousel_recent_posts class="slick-1" category="" posts="2" ptype=""]');
+                                editor.insertContent('[carousel_recent_posts class="slick-1" category="" ptype="" per_page="8"]');
+                            }
+                        },
+                        {
+                            text: 'Related Posts Masonry',
+                            onclick: function() {
+                                editor.insertContent('[relatedposts ptype="" max="4" column="col-md-4" class="" orderby="rand" label="Related Posts"]');
                             }
                         },
                     ]
