@@ -400,7 +400,6 @@ function list_recent_courses( $atts ) {
 add_shortcode( 'datatables_recent_courses', 'datatables_recent_courses' );
 function datatables_recent_courses( $atts ) {
 
-    wp_enqueue_script( 'dataTables-init' );
     wp_enqueue_script( 'dataTables-min' );
     wp_enqueue_script( 'buttons-min' );
     wp_enqueue_script( 'colVis-js' );
@@ -413,10 +412,13 @@ function datatables_recent_courses( $atts ) {
     wp_enqueue_script( 'vfs_fonts-js' );
     wp_enqueue_script( 'responsive-js' );
     wp_enqueue_script( 'responsive-bootstrap' );
+    wp_enqueue_script( 'materialize-js' );
+    wp_enqueue_script( 'materialize-init' );
     wp_enqueue_style( 'dataTables-css' );
     wp_enqueue_style( 'dataTables-bootstrap' );
     wp_enqueue_style( 'dataTables-buttons' );
     wp_enqueue_style( 'dataTables-responsive' );
+    wp_enqueue_style( 'materialize-css' );
 
     ob_start();
     // define attributes and their defaults
@@ -442,6 +444,18 @@ function datatables_recent_courses( $atts ) {
     $query = new WP_Query( $options );
     // run the loop based on the query
     if ( $query->have_posts() ) { ?>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <span multiple="true">Instructors</span>
+                    <select multiple="true" id="instructorFltr">
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <span>Course Numbers</span>
+                    <select id="courseNumberFltr" multiple="true"></select>
+                </div>
+            </div>
 
   <table id="coursesTable" class="table table-1 table-striped dt-responsive" cellspacing="0" width="100%">
     <thead>

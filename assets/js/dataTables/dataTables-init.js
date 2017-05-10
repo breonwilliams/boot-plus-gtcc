@@ -14,6 +14,7 @@ jQuery(function ($) {
           'pdfHtml5',
           'print',
         ]
+
       }
   );
 });
