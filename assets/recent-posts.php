@@ -449,11 +449,14 @@ function datatables_recent_courses( $atts ) {
                 <div class="col-md-3">
                     <span multiple="true">Instructors</span>
                     <select multiple="true" id="instructorFltr">
+                        <option value="" disabled>Choose your option</option>
                     </select>
                 </div>
                 <div class="col-md-3">
                     <span>Course Numbers</span>
-                    <select id="courseNumberFltr" multiple="true"></select>
+                    <select id="courseNumberFltr" multiple="true">
+                        <option value="" disabled>Choose your option</option>
+                    </select>
                 </div>
             </div>
 

@@ -53,4 +53,3 @@ jQuery(function ($) {
         table.column(3).search(search, true, false).draw();
     });
 });
- 
