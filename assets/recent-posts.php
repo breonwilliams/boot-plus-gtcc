@@ -445,7 +445,7 @@ function datatables_recent_courses( $atts ) {
     // run the loop based on the query
     if ( $query->have_posts() ) { ?>
 
-            <div class="row">
+            <div id="dataTablesSelect" class="row">
                 <div class="col-md-3">
                     <span multiple="true">Instructors</span>
                     <select multiple="true" id="instructorFltr">

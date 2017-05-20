@@ -19,6 +19,19 @@ jQuery(function ($) {
                 } );
             } );
             $("#instructorFltr,#courseNumberFltr").material_select();
+
+            $('.dataTables_filter').each(function () {
+                $(this).append('<button id="test" class="btn btn-default" type="button">Clear Search</button>');
+            });
+
+            var select = $('#dataTablesSelect select');
+            $("#test").click(function(){
+                table.search('').draw();
+                //$("form input").val("");
+                //$("#dataTablesSelect select").val('').change();
+                //select.material_select();        //Update material select
+            });
+
         },
         "dom": '<"dt-buttons"Bf><"clear">lirtp',
         "paging": true,
